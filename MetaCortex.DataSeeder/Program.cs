@@ -18,7 +18,7 @@ namespace MetaCortex.DataSeeder
             while (true)
             {
                 var customer = entities.RandomCustomer();
-                var returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend:5000/customer");
+                var returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend:5000/customers");
                 Console.WriteLine(customer.Email);
 
                 await Task.Delay(1000);
