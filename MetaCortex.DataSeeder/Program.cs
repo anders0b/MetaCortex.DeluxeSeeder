@@ -37,7 +37,7 @@ namespace MetaCortex.DataSeeder
                     var order = entities.RandomOrder();
                     order.CustomerId = returnCustomer.Id;
                     order.Products = randomProductList;
-                    var returnOrder = await orderSeeder.Seed(order, "http://ocelot-frontend:5000/orders");
+                    await orderSeeder.Seed(order, "http://ocelot-frontend:5000/orders");
                     Console.WriteLine(order.Id);
                     randomProductList.Clear();
                 }
