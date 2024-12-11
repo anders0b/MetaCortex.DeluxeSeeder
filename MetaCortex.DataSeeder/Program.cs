@@ -18,14 +18,14 @@ namespace MetaCortex.DataSeeder
             while (true)
             {
                 var customer = entities.RandomCustomer();
-                var returnCustomer = await customerSeeder.Seed(customer, "http://localhost:5000/customer");
+                var returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend/customer");
                 Console.WriteLine(customer.Email);
 
                 await Task.Delay(1000);
 
                 var product = entities.RandomProduct();
                 Console.WriteLine(product.Name);
-                var returnProduct = await productSeeder.Seed(product, "http://localhost:5000/products");
+                var returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend/products");
 
                 if(randomProductList.Count < 4)
                 {
@@ -37,7 +37,7 @@ namespace MetaCortex.DataSeeder
                     var order = entities.RandomOrder();
                     order.CustomerId = returnCustomer.Id;
                     order.Products = randomProductList;
-                    var returnOrder = await orderSeeder.Seed(order, "http://localhost:5000/orders");
+                    var returnOrder = await orderSeeder.Seed(order, "http://ocelot-frontend/orders");
                     Console.WriteLine(order.Id);
                 }
                 else
