@@ -27,21 +27,18 @@ namespace MetaCortex.DataSeeder
                 Console.WriteLine(product.Name);
                 var returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend:5000/products");
 
-                if(randomProductList.Count < 4)
+                if(randomProductList.Count <= 3)
                 {
                     randomProductList.Add(returnProduct);
                     Console.WriteLine(randomProductList.Count);
                 }
-                else if(randomProductList.Count == 3)
+                else
                 {
                     var order = entities.RandomOrder();
                     order.CustomerId = returnCustomer.Id;
                     order.Products = randomProductList;
                     var returnOrder = await orderSeeder.Seed(order, "http://ocelot-frontend:5000/orders");
                     Console.WriteLine(order.Id);
-                }
-                else
-                {
                     randomProductList.Clear();
                 }
                 await Task.Delay(4000);
