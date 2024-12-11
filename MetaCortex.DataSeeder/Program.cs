@@ -18,16 +18,16 @@ namespace MetaCortex.DataSeeder
             while (true)
             {
                 var customer = entities.RandomCustomer();
-                var returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend:5000/customers");
+                Customer returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend:5000/customers");
                 await Task.Delay(1000);
-                Console.WriteLine(returnCustomer.Email, returnCustomer.Id);
+                Console.WriteLine(returnCustomer.Id);
 
                 await Task.Delay(1000);
 
                 var product = entities.RandomProduct();
-                var returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend:5000/products");
+                Product returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend:5000/products");
                 await Task.Delay(1000);
-                Console.WriteLine(returnProduct.Name, returnProduct.Id);
+                Console.WriteLine(returnProduct.Id);
 
                 if (randomProductList.Count <= 3)
                 {
