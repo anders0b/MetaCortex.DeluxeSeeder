@@ -22,8 +22,8 @@ namespace MetaCortex.DataSeeder.Methods
         }
         public Product RandomProduct()
         {
-            string[] adjectives = { "Super", "Eco", "Smart", "Compact", "Powerful", "Sleek" };
-            string[] nouns = { "Widget", "Gadget", "Tool", "Device", "Machine", "System" };
+            string[] adjectives = { "Super", "Eco", "Smart", "Compact", "Powerful", "Sleek", "Cool", "Modern", "Interesting", "Yellow", "Green", "Expensive", "Cheap" };
+            string[] nouns = { "Widget", "Gadget", "Tool", "Device", "Machine", "System", "Trinket", "Entity", "Hole", "Microprocessor", "Doodad" };
             Random random = new Random();
 
             var product = new Product
@@ -33,6 +33,22 @@ namespace MetaCortex.DataSeeder.Methods
                 OrderStock = new Random().Next(1, 9999)
             };
             return product;
+        }
+        public Order RandomOrder()
+        {
+            string[] paymentMethods = { "Swish", "Klarna", "CreditCard", "Stripe" };
+            Random random = new Random();
+
+            var order = new Order
+            {
+                OrderDate = DateTime.Now,
+                CustomerId = string.Empty,
+                PaymentMethod = $"{paymentMethods[random.Next(paymentMethods.Length)]}",
+                IsPaid = false,
+                VIPStatus = false,
+                Products = new List<Product>()
+            };
+            return order;
         }
     }
 }

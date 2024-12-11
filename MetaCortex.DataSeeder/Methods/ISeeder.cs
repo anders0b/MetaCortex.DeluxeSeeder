@@ -8,6 +8,6 @@ namespace MetaCortex.DataSeeder.Methods
 {
     public interface ISeeder<T> where T : class
     {
-        Task Seed(T entity, string connection);
+        Task<T> Seed(T entity, string connection);
     }
 }
