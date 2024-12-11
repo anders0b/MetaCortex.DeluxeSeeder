@@ -1,5 +1,6 @@
 ﻿using MetaCortex.DataSeeder.DTOs;
 using MetaCortex.DataSeeder.Methods;
+using System.Text.Json;
 
 namespace MetaCortex.DataSeeder
 {
@@ -18,16 +19,16 @@ namespace MetaCortex.DataSeeder
             while (true)
             {
                 var customer = entities.RandomCustomer();
-                Customer returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend:5000/customers");
+                Customer returnCustomer = await customerSeeder.Seed(customer, "http://localhost:5000/customers");
                 await Task.Delay(1000);
-                Console.WriteLine(returnCustomer.Id);
+                Console.WriteLine(returnCustomer);
 
                 await Task.Delay(1000);
 
                 var product = entities.RandomProduct();
-                Product returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend:5000/products");
+                Product returnProduct = await productSeeder.Seed(product, "http://localhost:5000/products");
                 await Task.Delay(1000);
-                Console.WriteLine(returnProduct.Id);
+                Console.WriteLine(returnProduct);
 
                 if (randomProductList.Count <= 3)
                 {
@@ -37,10 +38,10 @@ namespace MetaCortex.DataSeeder
                 else
                 {
                     var order = entities.RandomOrder();
-                    order.CustomerId = returnCustomer.Id;
-                    order.Products = randomProductList;
-                    await orderSeeder.Seed(order, "http://ocelot-frontend:5000/orders");
-                    Console.WriteLine(order.Id);
+                    order.customerId = returnCustomer.id;
+                    order.products = randomProductList;
+                    await orderSeeder.Seed(order, "http://localhost:5000/orders");
+                    Console.WriteLine(order.id);
                     randomProductList.Clear();
                 }
                 await Task.Delay(4000);

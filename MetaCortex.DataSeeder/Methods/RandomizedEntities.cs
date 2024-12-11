@@ -11,12 +11,14 @@ namespace MetaCortex.DataSeeder.Methods
     {
         public Customer RandomCustomer()
         {
+            string[] adjectives = { "Super", "Eco", "Smart", "Compact", "Powerful", "Sleek", "Cool", "Modern", "Interesting", "Yellow", "Green", "Expensive", "Cheap" };
+            Random random = new Random();
             var customer = new Customer
             {
-                Name = "John Dog",
-                Email = $"john.dog{new Random().Next(1, 9999)}@test.se",
-                IsVip = new Random().Next(0, 2) == 1,
-                AllowNotifications = true
+                name = $"{adjectives[random.Next(adjectives.Length)]} John",
+                email = $"john.dog{new Random().Next(1, 9999)}@test.se",
+                isVip = new Random().Next(0, 2) == 1,
+                allowNotifications = true
             };
             return customer;
         }
@@ -28,9 +30,9 @@ namespace MetaCortex.DataSeeder.Methods
 
             var product = new Product
             {
-                Name = $"{adjectives[random.Next(adjectives.Length)]} {nouns[random.Next(nouns.Length)]}",
-                Price = new Random().Next(1, 9999),
-                OrderStock = new Random().Next(1, 9999)
+                name = $"{adjectives[random.Next(adjectives.Length)]} {nouns[random.Next(nouns.Length)]}",
+                price = new Random().Next(1, 9999),
+                orderStock = new Random().Next(1, 9999)
             };
             return product;
         }
@@ -41,12 +43,12 @@ namespace MetaCortex.DataSeeder.Methods
 
             var order = new Order
             {
-                OrderDate = DateTime.Now,
-                CustomerId = string.Empty,
-                PaymentMethod = $"{paymentMethods[random.Next(paymentMethods.Length)]}",
-                IsPaid = false,
-                VIPStatus = false,
-                Products = new List<Product>()
+                orderDate = DateTime.Now,
+                customerId = string.Empty,
+                paymentMethod = $"{paymentMethods[random.Next(paymentMethods.Length)]}",
+                isPaid = false,
+                vIPStatus = false,
+                products = new List<Product>()
             };
             return order;
         }

@@ -3,10 +3,10 @@ namespace MetaCortex.DataSeeder.DTOs
 {
     public class Product
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int OrderStock { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public decimal price { get; set; }
+        public int orderStock { get; set; }
 
     }
 }
