@@ -48,7 +48,7 @@ namespace MetaCortex.DataSeeder.Methods
                 paymentMethod = $"{paymentMethods[random.Next(paymentMethods.Length)]}",
                 isPaid = false,
                 vIPStatus = false,
-                products = new List<Product>()
+                products = new List<OrderProduct>()
             };
             return order;
         }
