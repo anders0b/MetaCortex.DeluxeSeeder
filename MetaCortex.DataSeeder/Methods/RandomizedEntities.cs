@@ -18,7 +18,7 @@ namespace MetaCortex.DataSeeder.Methods
                 name = $"{adjectives[random.Next(adjectives.Length)]} John",
                 email = $"john.dog{new Random().Next(1, 9999)}@test.se",
                 isVip = new Random().Next(0, 2) == 1,
-                allowNotifications = true
+                allowNotifications = new Random().Next(0, 2) == 1
             };
             return customer;
         }
