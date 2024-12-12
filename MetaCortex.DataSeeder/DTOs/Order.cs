@@ -14,6 +14,6 @@ namespace MetaCortex.DataSeeder.DTOs
         public string paymentMethod { get; set; }
         public bool isPaid { get; set; }
         public bool vIPStatus { get; set; }
-        public List<Product> products { get; set; }
+        public List<OrderProduct> products { get; set; }
     }
 }
