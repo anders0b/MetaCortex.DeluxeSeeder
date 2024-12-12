@@ -16,7 +16,8 @@ namespace MetaCortex.DataSeeder.Methods
                 isVip = new Random().Next(0, 2) == 1,
                 allowNotifications = new Random().Next(0, 2) == 1
             };
-            customer.email = $"{customer.name}.{new Random().Next(1, 9999)}@metacortex.se";
+            var emailWithDot = customer.name.Replace(" ", ".").ToLower();
+            customer.email = $"{emailWithDot}.{new Random().Next(1, 9999)}@metacortex.se";
             return customer;
         }
         public Product RandomProduct()
