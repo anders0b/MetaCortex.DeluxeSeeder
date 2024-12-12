@@ -1,9 +1,4 @@
 ﻿using MetaCortex.DataSeeder.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MetaCortex.DataSeeder.Methods
 {
@@ -11,15 +6,17 @@ namespace MetaCortex.DataSeeder.Methods
     {
         public Customer RandomCustomer()
         {
-            string[] adjectives = { "Super", "Eco", "Smart", "Compact", "Powerful", "Sleek", "Cool", "Modern", "Interesting", "Yellow", "Green", "Expensive", "Cheap" };
+            string[] firstNames = { "Anders", "Gabriel", "Jesper", "Olle", "Erik", "Johan", "Magnus", "Ingrid", "Johanna", "Linda", "Birgitta", "Sofia", "Sven" };
+            string[] LastNames = { "Öberg", "Raimondo", "Heimbrand", "Whendin", "Eriksson", "Larsson", "Olsson", "Persson", "Svensson", "Gustafsson" }; 
             Random random = new Random();
             var customer = new Customer
             {
-                name = $"{adjectives[random.Next(adjectives.Length)]} John",
-                email = $"john.dog{new Random().Next(1, 9999)}@test.se",
+                name = $"{firstNames[random.Next(firstNames.Length)]} {LastNames[random.Next(LastNames.Length)]}",
+                email = "",
                 isVip = new Random().Next(0, 2) == 1,
                 allowNotifications = new Random().Next(0, 2) == 1
             };
+            customer.email = $"{customer.name}.{new Random().Next(1, 9999)}@metacortex.se";
             return customer;
         }
         public Product RandomProduct()

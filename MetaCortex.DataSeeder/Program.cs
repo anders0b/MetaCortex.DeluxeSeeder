@@ -21,7 +21,13 @@ namespace MetaCortex.DataSeeder
             {
                 Console.WriteLine(line);
             }
-            Console.WriteLine("--------------------------");
+            foreach (var line in FunnyText.PantherText())
+            {
+                Console.WriteLine(line);
+            }
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("60% of the time, it works every time.");
+            Console.WriteLine("-------------------------------------");
 
             while (true)
             {

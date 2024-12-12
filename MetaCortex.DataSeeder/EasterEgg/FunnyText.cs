@@ -22,5 +22,20 @@ namespace MetaCortex.DataSeeder.EasterEgg
         };
             return fancyText;
         }
+        public static List<string> PantherText()
+        {
+            List<string> asciiArt = new List<string>
+        {
+            "  _____            _   _               ",
+            " |  __ \\          | | | |              ",
+            " | |__) |_ _ _ __ | |_| |__   ___ _ __ ",
+            " |  ___/ _` | '_ \\| __| '_ \\ / _ \\ '__|",
+            " | |  | (_| | | | | |_| | | |  __/ |   ",
+            " |_|   \\__,_|_| |_|\\__|_| |_|\\___|_|   ",
+            "                                       ",
+            "                                       "
+        };
+            return asciiArt;
+        }
     }
 }
