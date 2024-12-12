@@ -15,7 +15,7 @@ public static class ConvertToOrderProduct
                     Id = product.id,
                     Name = product.name,
                     Price = product.price,
-                    Quantity = product.orderStock
+                    Quantity = new Random().Next(1, 15)
                 });
             };
         }

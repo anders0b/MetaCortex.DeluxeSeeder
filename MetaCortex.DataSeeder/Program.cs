@@ -1,4 +1,5 @@
 ﻿using MetaCortex.DataSeeder.DTOs;
+using MetaCortex.DataSeeder.EasterEgg;
 using MetaCortex.DataSeeder.Methods;
 using System.Text.Json;
 
@@ -15,7 +16,11 @@ namespace MetaCortex.DataSeeder
             RandomizedEntities entities = new RandomizedEntities();
 
             var randomProductList = new List<Product>();
-            Console.WriteLine("LET THE SEEDING COMMENCE");
+
+            foreach(var line in FunnyText.IntroText())
+            {
+                Console.WriteLine(line);
+            }
             Console.WriteLine("--------------------------");
 
             while (true)
@@ -29,7 +34,7 @@ namespace MetaCortex.DataSeeder
 
                 var product = entities.RandomProduct();
                 Product returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend:5000/products");
-                Console.WriteLine($"Created customer with name: {returnProduct.name}");
+                Console.WriteLine($"Created product with name: {returnProduct.name}");
                 await Task.Delay(1000);
                 Console.WriteLine(returnProduct);
 
@@ -49,6 +54,7 @@ namespace MetaCortex.DataSeeder
                     randomProductList.Clear();
                 }
                 await Task.Delay(4000);
+                Console.WriteLine("--------------------------");
                 Console.WriteLine("Aw shit, here we go again");
 
             }
