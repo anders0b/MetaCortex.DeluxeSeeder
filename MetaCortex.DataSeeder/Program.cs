@@ -31,13 +31,6 @@ namespace MetaCortex.DataSeeder
 
             while (true)
             {
-                var customer = entities.RandomCustomer();
-                Customer returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend:5000/customers");
-                await Task.Delay(1000);
-                Console.WriteLine($"Created customer with name: {returnCustomer.name}");
-
-                await Task.Delay(1000);
-
                 var product = entities.RandomProduct();
                 Product returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend:5000/products");
                 Console.WriteLine($"Created product with name: {returnProduct.name}");
@@ -50,6 +43,11 @@ namespace MetaCortex.DataSeeder
                 }
                 else
                 {
+                    var customer = entities.RandomCustomer();
+                    Customer returnCustomer = await customerSeeder.Seed(customer, "http://ocelot-frontend:5000/customers");
+                    await Task.Delay(1000);
+                    Console.WriteLine($"Created customer with name: {returnCustomer.name}");
+
                     var order = entities.RandomOrder();
                     order.customerId = returnCustomer.id;
                     var orderProducts = ConvertToOrderProduct.Convert(randomProductList);
