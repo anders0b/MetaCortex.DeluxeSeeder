@@ -42,7 +42,6 @@ namespace MetaCortex.DataSeeder
                 Product returnProduct = await productSeeder.Seed(product, "http://ocelot-frontend:5000/products");
                 Console.WriteLine($"Created product with name: {returnProduct.name}");
                 await Task.Delay(1000);
-                Console.WriteLine(returnProduct);
 
                 if (randomProductList.Count <= 3)
                 {
